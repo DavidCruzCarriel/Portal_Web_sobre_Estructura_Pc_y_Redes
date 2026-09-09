@@ -40,6 +40,40 @@
     --shadow-lg: 0 8px 32px rgba(0, 212, 255, 0.2);
 }
 
+body.light-theme {
+    --color-dark-bg: #f5f7fa;
+    --color-dark-card: #ffffff;
+    --color-dark-text: #1a1a2e;
+    --color-border: #d0d8e0;
+    --shadow-sm: 0 2px 8px rgba(0, 99, 255, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 99, 255, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 99, 255, 0.2);
+}
+
+body.light-theme .logo h1 {
+    background: linear-gradient(135deg, #0066cc, #0099ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.light-theme .module-intro {
+    background: rgba(0, 153, 255, 0.05);
+}
+
+body.light-theme .header {
+    background: rgba(245, 247, 250, 0.98);
+    border-bottom-color: var(--color-border);
+}
+
+body.light-theme .nav-link {
+    color: #1a1a2e;
+}
+
+body.light-theme body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -119,6 +153,50 @@ body {
 .navbar {
     display: flex;
     align-items: center;
+    gap: var(--space-lg);
+}
+
+/* Botones de Utilidad */
+.utility-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.btn-utility {
+    background: rgba(0, 153, 255, 0.1);
+    border: 1px solid var(--color-primary);
+    color: var(--color-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.btn-utility:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--color-secondary);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-utility:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-utility.theme-active .theme-icon {
+    transform: rotate(180deg);
 }
 
 .nav-links {
@@ -1277,6 +1355,16 @@ tbody tr:hover {
 
     .menu-toggle {
         display: flex;
+    }
+
+    .utility-buttons {
+        gap: var(--space-xs);
+    }
+
+    .btn-utility {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
     }
 
     .nav-links {

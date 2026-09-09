@@ -26,6 +26,156 @@ function initMobileMenu() {
 }
 
 // ============================================
+// 1.5. TOGGLE DE TEMA (CLARO/OSCURO)
+// ============================================
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const body = document.body;
+
+    if (!themeToggle) return;
+
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    // Event listener para el botón
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    function applyTheme(theme) {
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.classList.add('theme-active');
+            themeIcon.textContent = '☀️';
+            htmlElement.setAttribute('data-theme', 'light');
+        } else {
+            body.classList.remove('light-theme');
+            themeToggle.classList.remove('theme-active');
+            themeIcon.textContent = '🌙';
+            htmlElement.setAttribute('data-theme', 'dark');
+        }
+    }
+}
+
+// ============================================
+// 1.6. DESCARGAR PDF
+// ============================================
+
+function initDownloadPDF() {
+    const downloadPdfBtn = document.getElementById('download-pdf');
+
+    if (!downloadPdfBtn) return;
+
+    downloadPdfBtn.addEventListener('click', () => {
+        downloadPageAsPDF();
+    });
+}
+
+function downloadPageAsPDF() {
+    showNotification('Preparando descarga de PDF...', 'info');
+    
+    // Crear un elemento script para cargar html2pdf
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    
+    script.onload = () => {
+        const element = document.body;
+        const opt = {
+            margin: 10,
+            filename: 'Portal-Educativo-Arquitectura-Redes.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, logging: false },
+            jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        };
+
+        html2pdf().set(opt).from(element).save();
+        showNotification('✓ PDF descargado correctamente', 'success');
+    };
+
+    script.onerror = () => {
+        // Fallback: descargar usando método print
+        window.print();
+        showNotification('💡 Usa "Guardar como PDF" en el diálogo de impresión', 'info');
+    };
+
+    document.head.appendChild(script);
+}
+
+// ============================================
+// 1.7. COMPARTIR PÁGINA
+// ============================================
+
+function initSharePage() {
+    const shareBtn = document.getElementById('share-page');
+
+    if (!shareBtn) return;
+
+    shareBtn.addEventListener('click', () => {
+        sharePage();
+    });
+}
+
+function sharePage() {
+    const title = 'Arquitectura de Computadores, Redes y Forensia Digital';
+    const text = 'Un portal educativo interactivo sobre fundamentos tecnológicos';
+    const url = window.location.href;
+
+    // Usar Web Share API si está disponible
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: text,
+            url: url
+        }).catch(err => {
+            if (err.name !== 'AbortError') {
+                console.error('Error al compartir:', err);
+                copyToClipboard(url);
+            }
+        });
+    } else {
+        // Fallback: copiar URL al portapapeles
+        copyToClipboard(url);
+    }
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification('✓ Enlace copiado al portapapeles', 'success');
+        }).catch(() => {
+            showNotificationFallback(text);
+        });
+    } else {
+        showNotificationFallback(text);
+    }
+}
+
+function showNotificationFallback(url) {
+    const textarea = document.createElement('textarea');
+    textarea.value = url;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        showNotification('✓ Enlace copiado al portapapeles', 'success');
+    } catch (err) {
+        showNotification('Comparte manualmente: ' + url, 'info');
+    }
+    document.body.removeChild(textarea);
+}
+
+// ============================================
 // 2. DESPLAZAMIENTO SUAVE
 // ============================================
 
@@ -520,6 +670,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar todas las funciones
     initMobileMenu();
+    initThemeToggle();
+    initDownloadPDF();
+    initSharePage();
     initSmoothScroll();
     initBackToTopButton();
     initCycleAnimation();
