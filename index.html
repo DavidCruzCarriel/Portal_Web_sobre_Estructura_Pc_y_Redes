@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal educativo sobre Arquitectura de Computadores, Redes de Comunicaciones e Investigación de Ciberdelitos">
+    <meta name="author" content="Portal Educativo">
+    <title>Arquitectura de Computadores, Redes y Forensia Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">⚙️</span>
+                <h1>Arquitectura, Redes y Forensia Digital</h1>
+            </div>
+            <p class="subtitle">Fundamentos tecnológicos aplicados a la investigación de ciberdelitos</p>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#modulo1" class="nav-link">Módulo 1</a></li>
+                <li><a href="#modulo2" class="nav-link">Módulo 2</a></li>
+                <li><a href="#modulo3" class="nav-link">Módulo 3</a></li>
+                <li><a href="#conclusiones" class="nav-link">Conclusiones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section-hero">
+            <div class="hero-content">
+                <h2>Bienvenido</h2>
+                <p>Este portal educativo te guiará a través de los fundamentos de la arquitectura de computadores, sistemas de redes y su aplicación en la investigación de ciberdelitos.</p>
+                <p>Exploraremos cómo funcionan los componentes internos de un computador, cómo se comunican los dispositivos en red y cómo esta información es crucial para la informática forense.</p>
+                <div class="scroll-indicator">Desplázate para comenzar ↓</div>
+            </div>
+        </section>
+
+        <!-- MÓDULO 1: Arquitectura de Computadores -->
+        <section id="modulo1" class="module module-1">
+            <div class="module-header">
+                <h2>Módulo 1</h2>
+                <h3>Arquitectura y Estructura de Computadores</h3>
+            </div>
+
+            <article class="module-intro">
+                <p>La arquitectura de computadores es el estudio de cómo funcionan internamente los procesadores y cómo procesan la información. Comprender estos fundamentos es esencial para cualquier profesional de la tecnología, especialmente en investigación forense digital.</p>
+            </article>
+
+            <!-- 1. Componentes principales de la CPU -->
+            <article class="topic">
+                <h4>1. Componentes Principales de la CPU</h4>
+                
+                <div class="components-grid">
+                    <!-- ALU -->
+                    <div class="component-card">
+                        <div class="card-icon">➕</div>
+                        <h5>ALU — Unidad Aritmético-Lógica</h5>
+                        <p>La ALU realiza operaciones aritméticas y lógicas sobre los datos. Es el "corazón computacional" de la CPU.</p>
+                        <div class="examples">
+                            <p><strong>Operaciones que realiza:</strong></p>
+                            <ul>
+                                <li>Suma y resta</li>
+                                <li>Multiplicación y división</li>
+                                <li>Comparaciones (igual, mayor, menor)</li>
+                                <li>Operaciones AND, OR, NOT</li>
+                                <li>Desplazamientos de bits</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- UC -->
+                    <div class="component-card">
+                        <div class="card-icon">🎛️</div>
+                        <h5>UC — Unidad de Control</h5>
+                        <p>La UC coordina todas las operaciones del procesador. Interpreta instrucciones y dirige el flujo de datos.</p>
+                        <div class="examples">
+                            <p><strong>Funciones:</strong></p>
+                            <ul>
+                                <li>Decodificar instrucciones</li>
+                                <li>Controlar la ALU</li>
+                                <li>Gestionar accesos a memoria</li>
+                                <li>Coordinar periféricos</li>
+                                <li>Sincronizar todas las operaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Registros -->
+                    <div class="component-card">
+                        <div class="card-icon">📦</div>
+                        <h5>Registros</h5>
+                        <p>Pequeñas unidades de almacenamiento de alta velocidad dentro de la CPU. Guardan temporalmente datos, instrucciones y direcciones.</p>
+                        <div class="examples">
+                            <p><strong>Características:</strong></p>
+                            <ul>
+                                <li>Acceso extremadamente rápido</li>
+                                <li>Capacidad muy limitada</li>
+                                <li>Almacenamiento temporal</li>
+                                <li>Integrados en la CPU</li>
+                                <li>Esenciales para el rendimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. Ciclo de instrucción -->
+            <article class="topic">
+                <h4>2. Ciclo de Instrucción: Fetch - Decode - Execute</h4>
+                
+                <p>El ciclo de instrucción es el proceso fundamental mediante el cual la CPU ejecuta cada operación. Consta de tres etapas principales:</p>
+
+                <div class="instruction-cycle">
+                    <div class="cycle-stage">
+                        <div class="stage-number">1</div>
+                        <h5>FETCH</h5>
+                        <p>La CPU obtiene la siguiente instrucción desde la memoria RAM, utilizando el contador de programa (PC).</p>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="cycle-stage">
+                        <div class="stage-number">2</div>
+                        <h5>DECODE</h5>
+                        <p>La Unidad de Control interpreta la instrucción y determina qué operación debe realizarse.</p>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="cycle-stage">
+                        <div class="stage-number">3</div>
+                        <h5>EXECUTE</h5>
+                        <p>El procesador ejecuta la operación correspondiente, utilizando la ALU si es necesario.</p>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <h5>Visualización Interactiva</h5>
+                    <p>Haz clic en el botón para ver una animación del ciclo de instrucción:</p>
+                    <button id="cycle-animation-btn" class="btn btn-primary">Iniciar Animación</button>
+                    <div id="cycle-animation" class="cycle-animation hidden">
+                        <div class="animation-box" id="fetch-box">FETCH</div>
+                        <div class="animation-arrow">→</div>
+                        <div class="animation-box" id="decode-box">DECODE</div>
+                        <div class="animation-arrow">→</div>
+                        <div class="animation-box" id="execute-box">EXECUTE</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. Jerarquía de memoria -->
+            <article class="topic">
+                <h4>3. Jerarquía de Memoria</h4>
+                
+                <p>La memoria en un computador está organizada en una jerarquía. A medida que aumenta la capacidad, disminuye la velocidad de acceso:</p>
+
+                <div class="memory-hierarchy">
+                    <div class="memory-level level-1">
+                        <div class="level-label">Registros</div>
+                        <div class="level-info">
+                            <p><strong>Velocidad:</strong> Muy alta (1-2 ciclos)</p>
+                            <p><strong>Capacidad:</strong> Bytes (64-512B)</p>
+                            <p><strong>Ubicación:</strong> Dentro de la CPU</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-level level-2">
+                        <div class="level-label">Caché L1/L2</div>
+                        <div class="level-info">
+                            <p><strong>Velocidad:</strong> Alta (3-15 ciclos)</p>
+                            <p><strong>Capacidad:</strong> Kilobytes (32KB-256KB)</p>
+                            <p><strong>Ubicación:</strong> Integrada en el procesador</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-level level-3">
+                        <div class="level-label">Memoria RAM</div>
+                        <div class="level-info">
+                            <p><strong>Velocidad:</strong> Media (50-100 ciclos)</p>
+                            <p><strong>Capacidad:</strong> Gigabytes (4GB-64GB+)</p>
+                            <p><strong>Ubicación:</strong> Placa base, volátil</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-level level-4">
+                        <div class="level-label">Almacenamiento</div>
+                        <div class="level-info">
+                            <p><strong>Velocidad:</strong> Baja (milisegundos)</p>
+                            <p><strong>Capacidad:</strong> Terabytes</p>
+                            <p><strong>Ubicación:</strong> Disco duro/SSD, persistente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-diagram">
+                    <svg viewBox="0 0 400 300" class="pyramid-diagram">
+                        <polygon points="200,20 380,280 20,280" fill="none" stroke="#00d4ff" stroke-width="2"/>
+                        <line x1="200" y1="20" x2="380" y2="280" stroke="#00d4ff" stroke-width="1"/>
+                        <line x1="200" y1="20" x2="20" y2="280" stroke="#00d4ff" stroke-width="1"/>
+                        
+                        <!-- Etiquetas -->
+                        <text x="200" y="80" text-anchor="middle" fill="#00d4ff" font-weight="bold">Registros</text>
+                        <text x="200" y="120" text-anchor="middle" fill="#0099ff" font-weight="bold">Caché</text>
+                        <text x="200" y="170" text-anchor="middle" fill="#0066ff" font-weight="bold">RAM</text>
+                        <text x="200" y="260" text-anchor="middle" fill="#003366" font-weight="bold">Almacenamiento</text>
+                        
+                        <!-- Indicadores de velocidad -->
+                        <text x="390" y="80" fill="#00d4ff" font-size="12">Rápido</text>
+                        <text x="390" y="260" fill="#003366" font-size="12">Lento</text>
+                    </svg>
+                </div>
+
+                <div class="memory-summary">
+                    <p><strong>Principio fundamental:</strong> Un computador accede preferentemente a la memoria más rápida disponible. Si los datos no están en registros o caché, busca en RAM y, si es necesario, accede al almacenamiento.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- MÓDULO 2: Redes de Comunicaciones -->
+        <section id="modulo2" class="module module-2">
+            <div class="module-header">
+                <h2>Módulo 2</h2>
+                <h3>Fundamentos de Redes de Comunicaciones</h3>
+            </div>
+
+            <article class="module-intro">
+                <p>Las redes de computadores son sistemas que permiten que dispositivos se comuniquen entre sí, compartiendo información y recursos. Comprender los fundamentos de las redes es esencial para entender cómo se transmite información y cómo se pueden investigar las comunicaciones.</p>
+            </article>
+
+            <!-- 1. Conceptos básicos -->
+            <article class="topic">
+                <h4>1. Conceptos Básicos de Redes</h4>
+                
+                <div class="concepts-grid">
+                    <div class="concept-card">
+                        <h5>Red Informática</h5>
+                        <p>Sistema de computadores y dispositivos conectados mediante medios de transmisión que les permite comunicarse y compartir recursos.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h5>Dispositivo de Red</h5>
+                        <p>Equipo conectado a la red capaz de enviar y recibir datos. Ejemplos: computadores, servidores, routers, switches.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h5>Nodo</h5>
+                        <p>Punto de conexión en la red. Cada dispositivo conectado es un nodo que puede comunicarse con otros nodos.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h5>Medio de Transmisión</h5>
+                        <p>Canal físico o inalámbrico por el cual se transmiten los datos. Ejemplos: cables Ethernet, fibra óptica, WiFi.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h5>Protocolo</h5>
+                        <p>Conjunto de reglas que especifican cómo deben comunicarse los dispositivos. Ejemplos: TCP/IP, HTTP, DNS.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h5>Comunicación de Datos</h5>
+                        <p>Intercambio de información entre dispositivos siguiendo protocolos establecidos y utilizando medios de transmisión específicos.</p>
+                    </div>
+                </div>
+
+                <div class="network-diagram">
+                    <svg viewBox="0 0 500 300" class="simple-network">
+                        <!-- Centro (Router) -->
+                        <circle cx="250" cy="150" r="40" fill="#00d4ff" stroke="#00ff88" stroke-width="2"/>
+                        <text x="250" y="155" text-anchor="middle" fill="#000" font-weight="bold" font-size="12">Router</text>
+
+                        <!-- Dispositivos -->
+                        <g id="device-1">
+                            <rect x="80" y="80" width="60" height="50" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
+                            <text x="110" y="110" text-anchor="middle" fill="#fff" font-size="12">PC 1</text>
+                            <line x1="140" y1="105" x2="210" y2="140" stroke="#00d4ff" stroke-width="2"/>
+                        </g>
+
+                        <g id="device-2">
+                            <rect x="360" y="80" width="60" height="50" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
+                            <text x="390" y="110" text-anchor="middle" fill="#fff" font-size="12">PC 2</text>
+                            <line x1="360" y1="105" x2="290" y2="140" stroke="#00d4ff" stroke-width="2"/>
+                        </g>
+
+                        <g id="device-3">
+                            <rect x="80" y="220" width="60" height="50" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
+                            <text x="110" y="250" text-anchor="middle" fill="#fff" font-size="12">PC 3</text>
+                            <line x1="140" y1="245" x2="210" y2="170" stroke="#00d4ff" stroke-width="2"/>
+                        </g>
+
+                        <g id="device-4">
+                            <rect x="360" y="220" width="60" height="50" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
+                            <text x="390" y="250" text-anchor="middle" fill="#fff" font-size="12">PC 4</text>
+                            <line x1="360" y1="245" x2="290" y2="170" stroke="#00d4ff" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </div>
+            </article>
+
+            <!-- 2. Direcciones IP y MAC -->
+            <article class="topic">
+                <h4>2. Direcciones IP y MAC: Identificadores de Red</h4>
+                
+                <p>Cada dispositivo en una red necesita dos identificadores fundamentales: una dirección IP (lógica) y una dirección MAC (física).</p>
+
+                <div class="ip-mac-comparison">
+                    <div class="comparison-item">
+                        <h5>Dirección IP (Dirección Lógica)</h5>
+                        <ul>
+                            <li><strong>Tipo:</strong> Identificador lógico</li>
+                            <li><strong>Función:</strong> Identificar un dispositivo dentro de una red</li>
+                            <li><strong>Asignación:</strong> Puede cambiar según la configuración de red</li>
+                            <li><strong>Niveles:</strong> IPv4 (32 bits) o IPv6 (128 bits)</li>
+                            <li><strong>Ejemplo IPv4:</strong> <code>192.168.1.25</code></li>
+                            <li><strong>Ejemplo IPv6:</strong> <code>2001:0db8:ac10:fe01:0000:0000:0000:0000</code></li>
+                            <li><strong>Uso:</strong> Enrutamiento y alcance global de redes</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-item">
+                        <h5>Dirección MAC (Dirección Física)</h5>
+                        <ul>
+                            <li><strong>Tipo:</strong> Identificador físico</li>
+                            <li><strong>Función:</strong> Identificar la interfaz de red en una red local</li>
+                            <li><strong>Asignación:</strong> Grabada en la tarjeta de red, difícil de cambiar</li>
+                            <li><strong>Niveles:</strong> 48 bits en formato hexadecimal</li>
+                            <li><strong>Formato:</strong> XX:XX:XX:XX:XX:XX</li>
+                            <li><strong>Ejemplo:</strong> <code>00:1A:2B:3C:4D:5E</code></li>
+                            <li><strong>Uso:</strong> Comunicación en redes locales (LAN)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ip-mac-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Dirección IP</th>
+                                <th>Dirección MAC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tipo</strong></td>
+                                <td>Lógica</td>
+                                <td>Física</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Función</strong></td>
+                                <td>Identificación y enrutamiento</td>
+                                <td>Identificación en red local</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Formato</strong></td>
+                                <td>IPv4/IPv6</td>
+                                <td>Hexadecimal (48 bits)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ejemplo</strong></td>
+                                <td>192.168.1.25</td>
+                                <td>00:1A:2B:3C:4D:5E</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cambio</strong></td>
+                                <td>Puede cambiar fácilmente</td>
+                                <td>Inherente a la tarjeta de red</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alcance</strong></td>
+                                <td>Redes amplias (Internet)</td>
+                                <td>Red local (LAN)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="device-identifiers-diagram">
+                    <svg viewBox="0 0 500 250" class="device-diagram">
+                        <!-- Dispositivo -->
+                        <rect x="100" y="50" width="300" height="150" fill="#1a1a2e" stroke="#00d4ff" stroke-width="2" rx="10"/>
+                        
+                        <!-- Información -->
+                        <text x="250" y="90" text-anchor="middle" fill="#00d4ff" font-weight="bold" font-size="14">Computador en Red</text>
+                        
+                        <!-- IP -->
+                        <text x="150" y="130" fill="#00ff88" font-weight="bold">IP:</text>
+                        <text x="240" y="130" fill="#fff" font-family="monospace">192.168.1.25</text>
+                        
+                        <!-- MAC -->
+                        <text x="150" y="170" fill="#00ff88" font-weight="bold">MAC:</text>
+                        <text x="240" y="170" fill="#fff" font-family="monospace">00:1A:2B:3C:4D:5E</text>
+                        
+                        <!-- Etiquetas -->
+                        <text x="480" y="130" fill="#0099ff" font-size="11">Dirección lógica</text>
+                        <text x="480" y="170" fill="#0099ff" font-size="11">Dirección física</text>
+                    </svg>
+                </div>
+            </article>
+
+            <!-- 3. Topologías de red -->
+            <article class="topic">
+                <h4>3. Topologías Físicas de Red</h4>
+                
+                <p>La topología define cómo están conectados los dispositivos en una red. Las tres topologías principales son estrella, anillo y bus.</p>
+
+                <div class="topologies-container">
+                    <!-- Topología Estrella -->
+                    <div class="topology-section">
+                        <h5>Topología Estrella</h5>
+                        
+                        <svg viewBox="0 0 200 200" class="topology-diagram">
+                            <!-- Dispositivo central -->
+                            <circle cx="100" cy="100" r="20" fill="#00d4ff" stroke="#00ff88" stroke-width="2"/>
+                            <text x="100" y="105" text-anchor="middle" fill="#000" font-size="10" font-weight="bold">Hub/Switch</text>
+                            
+                            <!-- Dispositivos periféricos -->
+                            <circle cx="100" cy="20" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="100" y1="35" x2="100" y2="80" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="170" cy="100" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="120" y1="100" x2="155" y2="100" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="100" cy="180" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="100" y1="120" x2="100" y2="165" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="30" cy="100" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="45" y1="100" x2="80" y2="100" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+
+                        <div class="topology-details">
+                            <p><strong>Funcionamiento:</strong> Todos los dispositivos se conectan a un dispositivo central (hub o switch).</p>
+                            
+                            <p><strong>Ventajas:</strong></p>
+                            <ul>
+                                <li>Fácil de instalar y mantener</li>
+                                <li>Identificación rápida de problemas</li>
+                                <li>Escalabilidad sencilla</li>
+                            </ul>
+
+                            <p><strong>Desventajas:</strong></p>
+                            <ul>
+                                <li>Si falla el dispositivo central, toda la red cae</li>
+                                <li>Mayor costo por cableado</li>
+                                <li>Punto único de fallo</li>
+                            </ul>
+
+                            <p><strong>Impacto operacional:</strong></p>
+                            <ul>
+                                <li>Fallo de un cable: Aísla un dispositivo</li>
+                                <li>Fallo del central: Caída total de la red</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Topología Anillo -->
+                    <div class="topology-section">
+                        <h5>Topología Anillo</h5>
+                        
+                        <svg viewBox="0 0 200 200" class="topology-diagram">
+                            <!-- Anillo -->
+                            <circle cx="100" cy="100" r="70" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="5,5"/>
+                            
+                            <!-- Dispositivos en el anillo -->
+                            <circle cx="100" cy="30" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="160" cy="60" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="170" cy="130" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="100" cy="170" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="30" cy="130" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="40" cy="60" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+
+                        <div class="topology-details">
+                            <p><strong>Funcionamiento:</strong> Los dispositivos forman un círculo cerrado. Los datos viajan de nodo a nodo.</p>
+                            
+                            <p><strong>Ventajas:</strong></p>
+                            <ul>
+                                <li>Buen rendimiento en redes pequeñas</li>
+                                <li>Cableado eficiente</li>
+                                <li>Fácil de expandir</li>
+                            </ul>
+
+                            <p><strong>Desventajas:</strong></p>
+                            <ul>
+                                <li>Difícil de diagnosticar problemas</li>
+                                <li>Si falla un nodo, afecta toda la red</li>
+                                <li>Latencia mayor que la estrella</li>
+                            </ul>
+
+                            <p><strong>Impacto operacional:</strong> El fallo de un enlace o dispositivo interrumpe toda la comunicación.</p>
+                        </div>
+                    </div>
+
+                    <!-- Topología Bus -->
+                    <div class="topology-section">
+                        <h5>Topología Bus</h5>
+                        
+                        <svg viewBox="0 0 300 150" class="topology-diagram">
+                            <!-- Bus principal -->
+                            <line x1="30" y1="75" x2="270" y2="75" stroke="#00d4ff" stroke-width="3"/>
+                            
+                            <!-- Dispositivos conectados -->
+                            <circle cx="40" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="40" y1="35" x2="40" y2="63" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="40" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="110" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="110" y1="35" x2="110" y2="63" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="110" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="190" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="190" y1="35" x2="190" y2="63" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="190" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            
+                            <circle cx="260" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <line x1="260" y1="35" x2="260" y2="63" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="260" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                        </svg>
+
+                        <div class="topology-details">
+                            <p><strong>Funcionamiento:</strong> Todos los dispositivos comparten un único medio de transmisión (bus).</p>
+                            
+                            <p><strong>Ventajas:</strong></p>
+                            <ul>
+                                <li>Económico en cableado</li>
+                                <li>Fácil de instalar</li>
+                                <li>Ideal para redes pequeñas</li>
+                            </ul>
+
+                            <p><strong>Desventajas:</strong></p>
+                            <ul>
+                                <li>Alto tráfico causa congestión</li>
+                                <li>Difícil de diagnosticar</li>
+                                <li>Bajo rendimiento con muchos nodos</li>
+                                <li>Riesgo de colisión de datos</li>
+                            </ul>
+
+                            <p><strong>Impacto operacional:</strong> Todos compiten por el medio. Fallo en el bus afecta toda la red.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topology-comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Estrella</th>
+                                <th>Anillo</th>
+                                <th>Bus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Rendimiento</strong></td>
+                                <td>Muy bueno</td>
+                                <td>Bueno</td>
+                                <td>Bajo/Medio</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Costo</strong></td>
+                                <td>Alto</td>
+                                <td>Medio</td>
+                                <td>Bajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mantenimiento</strong></td>
+                                <td>Fácil</td>
+                                <td>Difícil</td>
+                                <td>Difícil</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Escalabilidad</strong></td>
+                                <td>Excelente</td>
+                                <td>Buena</td>
+                                <td>Limitada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Punto de fallo</strong></td>
+                                <td>Central</td>
+                                <td>Cualquier nodo</td>
+                                <td>Bus</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- MÓDULO 3: Ciberdelitos y Forensia Digital -->
+        <section id="modulo3" class="module module-3">
+            <div class="module-header">
+                <h2>Módulo 3</h2>
+                <h3>Aplicación en la Investigación de Ciberdelitos</h3>
+            </div>
+
+            <article class="module-intro">
+                <p><strong>¿Por qué es importante este módulo?</strong></p>
+                <p>El conocimiento de la memoria RAM, registros y tráfico de red es fundamental para un investigador forense. Estos tres componentes contienen evidencia crucial que puede ser temporal, perecedera o fundamental para reconstruir eventos de seguridad.</p>
+            </article>
+
+            <!-- Análisis Forense Interactivo -->
+            <article class="topic forensic-interactive">
+                <h4>Análisis Forense: Memoría, Registros y Tráfico de Red</h4>
+                
+                <div class="forensic-selector">
+                    <p>Selecciona un componente para explorar su rol en la investigación forense:</p>
+                    
+                    <div class="selector-buttons">
+                        <button class="forensic-btn active" data-forensic="ram">
+                            <span class="btn-icon">🧠</span> Memoria RAM
+                        </button>
+                        <button class="forensic-btn" data-forensic="logs">
+                            <span class="btn-icon">📋</span> Registros
+                        </button>
+                        <button class="forensic-btn" data-forensic="traffic">
+                            <span class="btn-icon">🌐</span> Tráfico de Red
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RAM Content -->
+                <div class="forensic-content" id="forensic-ram">
+                    <h5>Memoria RAM en Investigación Forense</h5>
+                    
+                    <p>La memoria RAM es <strong>volátil</strong>: desaparece cuando el dispositivo se apaga. Sin embargo, contiene información temporal crucial que puede no estar almacenada en disco.</p>
+
+                    <p><strong>Tipos de información encontrada en RAM:</strong></p>
+                    <ul>
+                        <li><strong>Procesos activos:</strong> Programas ejecutándose en el momento del análisis</li>
+                        <li><strong>Conexiones de red:</strong> Puertos abiertos, conexiones activas, sesiones TCP</li>
+                        <li><strong>Datos en uso:</strong> Información temporal cargada durante el funcionamiento</li>
+                        <li><strong>Contraseñas y tokens:</strong> Información de sesión que puede no estar encriptada</li>
+                        <li><strong>Malware residentes:</strong> Código malicioso que solo existe en memoria</li>
+                        <li><strong>Sesiones activas:</strong> Usuarios conectados, aplicaciones abiertas</li>
+                    </ul>
+
+                    <p><strong>Importancia para la investigación:</strong></p>
+                    <ul>
+                        <li>Capturar evidencia antes de que desaparezca</li>
+                        <li>Identificar malware que se ejecuta en tiempo real</li>
+                        <li>Reconstruir actividades recientes del dispositivo</li>
+                        <li>Acceder a información no cifrada en memoria</li>
+                        <li>Determinar conexiones activas en el momento del análisis</li>
+                    </ul>
+
+                    <p><strong>Desafío forense:</strong> La toma de imagen de memoria debe realizarse rápidamente. Cada segundo que pasa, datos nuevos sobrescriben información anterior.</p>
+                </div>
+
+                <!-- Logs Content -->
+                <div class="forensic-content hidden" id="forensic-logs">
+                    <h5>Registros del Sistema y Aplicaciones</h5>
+                    
+                    <p>Los <strong>registros (logs)</strong> son archivos que registran eventos y actividades del sistema. Son <strong>persistentes</strong> y se almacenan en disco.</p>
+
+                    <p><strong>Tipos de registros importantes:</strong></p>
+                    <ul>
+                        <li><strong>Event Viewer (Windows):</strong> Registro de eventos del sistema, seguridad y aplicaciones</li>
+                        <li><strong>Syslog (Linux):</strong> Eventos del sistema y aplicaciones</li>
+                        <li><strong>Registros de autenticación:</strong> Intentos de login, conexiones SSH</li>
+                        <li><strong>Registros de errores:</strong> Fallos de aplicaciones y servicios</li>
+                        <li><strong>Registros de cambios:</strong> Modificaciones a archivos de configuración</li>
+                        <li><strong>Registros de acceso a aplicaciones:</strong> Acciones dentro de programas</li>
+                    </ul>
+
+                    <p><strong>Información que se obtiene:</strong></p>
+                    <ul>
+                        <li>Línea temporal de eventos (cuándo ocurrió algo)</li>
+                        <li>Identificación de usuarios involucrados</li>
+                        <li>Direcciones IP desde donde se conectaron</li>
+                        <li>Aplicaciones que se ejecutaron y cuándo</li>
+                        <li>Errores y excepciones que ocurrieron</li>
+                        <li>Cambios de configuración y cuándo se realizaron</li>
+                    </ul>
+
+                    <p><strong>Desafío forense:</strong> Los registros pueden ser modificados, eliminados o limpiados por atacantes. Un investigador debe verificar la integridad y comparar registros de múltiples fuentes.</p>
+                </div>
+
+                <!-- Traffic Content -->
+                <div class="forensic-content hidden" id="forensic-traffic">
+                    <h5>Análisis de Tráfico de Red</h5>
+                    
+                    <p>El <strong>tráfico de red</strong> es el conjunto de datos transmitidos entre dispositivos en una red. Su análisis revela comunicaciones e intenciones.</p>
+
+                    <p><strong>Información del tráfico de red:</strong></p>
+                    <ul>
+                        <li><strong>Direcciones IP:</strong> Quién se comunicó con quién</li>
+                        <li><strong>Puertos:</strong> Qué servicios se utilizaron (puerto 80=HTTP, 443=HTTPS, 22=SSH)</li>
+                        <li><strong>Protocolos:</strong> Cómo se comunicaron (TCP, UDP, ICMP)</li>
+                        <li><strong>Datos transferidos:</strong> Volumen y contenido de la comunicación</li>
+                        <li><strong>Timestamps:</strong> Cuándo ocurrió cada comunicación</li>
+                        <li><strong>Patrones de comunicación:</strong> Comportamiento anómalo o sospechoso</li>
+                    </ul>
+
+                    <p><strong>Casos de uso forense:</strong></p>
+                    <ul>
+                        <li>Identificar comunicaciones con servidores de control de malware (C&C)</li>
+                        <li>Detectar exfiltración de datos</li>
+                        <li>Mapear conexiones anómalas o no autorizadas</li>
+                        <li>Correlacionar eventos de red con acciones en el dispositivo</li>
+                        <li>Identificar dispositivos comprometidos en la red</li>
+                        <li>Reconstruir la cadena de eventos en un incidente de seguridad</li>
+                    </ul>
+
+                    <p><strong>Desafío forense:</strong> Los atacantes pueden usar VPNs, proxies o encriptación para ocultar sus comunicaciones. Sin embargo, patrones como frecuencia, volumen y destinos pueden seguir siendo indicadores de compromiso.</p>
+                </div>
+            </article>
+
+            <!-- Correlación de Evidencias -->
+            <article class="topic">
+                <h4>Correlación de Evidencias en Investigación Forense</h4>
+                
+                <p>Un investigador forense no debe analizar RAM, registros y tráfico de red de forma aislada. La verdadera potencia está en correlacionar la información de todas las fuentes:</p>
+
+                <div class="forensic-correlation">
+                    <div class="correlation-flow">
+                        <div class="flow-item">
+                            <div class="item-icon">🧠</div>
+                            <p>Memoria RAM</p>
+                            <p class="small">Procesos activos, conexiones actuales</p>
+                        </div>
+
+                        <div class="flow-plus">+</div>
+
+                        <div class="flow-item">
+                            <div class="item-icon">📋</div>
+                            <p>Registros</p>
+                            <p class="small">Línea temporal de eventos</p>
+                        </div>
+
+                        <div class="flow-plus">+</div>
+
+                        <div class="flow-item">
+                            <div class="item-icon">🌐</div>
+                            <p>Tráfico de Red</p>
+                            <p class="small">Comunicaciones y destinos</p>
+                        </div>
+
+                        <div class="flow-arrow">→</div>
+
+                        <div class="flow-result">
+                            <div class="result-icon">🔍</div>
+                            <p>Correlación y Análisis</p>
+                            <p class="small">Reconstrucción de eventos</p>
+                        </div>
+                    </div>
+
+                    <div class="correlation-example">
+                        <h5>Ejemplo de Correlación:</h5>
+                        <p><strong>Escenario:</strong> Se sospecha que una computadora ha sido comprometida por malware.</p>
+
+                        <ol>
+                            <li><strong>En RAM:</strong> Se encuentra un proceso llamado "svchost.exe" con una conexión de red anómala</li>
+                            <li><strong>En Registros:</strong> El registro de eventos muestra que este proceso se inició con privilegios elevados a las 14:30</li>
+                            <li><strong>En Tráfico:</strong> Se observa comunicación con una dirección IP sospechosa (servidor C&C conocido) a la misma hora</li>
+                            <li><strong>Correlación:</strong> Estos tres elementos confluyen, confirmando un compromiso activo</li>
+                        </ol>
+
+                        <p><strong>Conclusión:</strong> Un investigador que solo hubiera analizado RAM no hubiera encontrado el servidor C&C. Uno que solo hubiera visto registros no hubiera detectado la conexión actual. Pero con la correlación, la evidencia es clara y sólida.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Relación con módulos anteriores -->
+            <article class="topic">
+                <h4>Conexión con los Conceptos Anteriores</h4>
+                
+                <div class="connections-grid">
+                    <div class="connection-card">
+                        <h5>Arquitectura de Computadores</h5>
+                        <p>Comprender cómo funciona la CPU, la memoria y el almacenamiento es esencial para:</p>
+                        <ul>
+                            <li>Saber dónde se almacena la evidencia</li>
+                            <li>Entender cómo se ejecutan los procesos</li>
+                            <li>Comprender la volatilidad de la memoria</li>
+                            <li>Estimar tiempos y secuencias de eventos</li>
+                        </ul>
+                    </div>
+
+                    <div class="connection-card">
+                        <h5>Redes de Comunicaciones</h5>
+                        <p>Entender cómo se comunican los dispositivos es fundamental para:</p>
+                        <ul>
+                            <li>Analizar el tráfico de red capturado</li>
+                            <li>Interpretar direcciones IP y MAC</li>
+                            <li>Identificar patrones de comunicación sospechosos</li>
+                            <li>Mapear la topología de la red comprometida</li>
+                        </ul>
+                    </div>
+
+                    <div class="connection-card">
+                        <h5>Investigación Integral</h5>
+                        <p>El análisis combinado permite:</p>
+                        <ul>
+                            <li>Reconstruir la línea completa de eventos</li>
+                            <li>Establecer causalidad y cadena de eventos</li>
+                            <li>Validar hipótesis con múltiples fuentes</li>
+                            <li>Producir evidencia sólida y creíble</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- CONCLUSIONES -->
+        <section id="conclusiones" class="section-conclusion">
+            <div class="conclusion-header">
+                <h2>Conclusiones</h2>
+                <p>Reflexiones finales sobre los conceptos clave</p>
+            </div>
+
+            <div class="conclusions-grid">
+                <article class="conclusion-card">
+                    <h4>1. El Computador es un Sistema Integrado</h4>
+                    <p>La arquitectura de computadores no es una colección de componentes aislados. La ALU, la Unidad de Control, los registros y la jerarquía de memoria forman un sistema coordinado donde cada componente tiene un rol específico en el procesamiento de información. Comprender esta integración es fundamental para entender cómo funcionan los sistemas modernos.</p>
+                </article>
+
+                <article class="conclusion-card">
+                    <h4>2. Las Redes Conectan Sistemas y Multiplican su Potencia</h4>
+                    <p>Las redes de comunicaciones permiten que computadores aislados se conviertan en sistemas distribuidos. Mediante protocolos estándar, direcciones de identificación (IP y MAC) y topologías organizadas, los dispositivos pueden colaborar a escala global. Sin embargo, esta conectividad también introduce nuevas superficies de ataque.</p>
+                </article>
+
+                <article class="conclusion-card">
+                    <h4>3. La Evidencia Está Distribuida y es Temporal</h4>
+                    <p>En una investigación forense, la evidencia no reside en un único lugar. La memoria RAM contiene información temporal, los registros mantienen un histórico de eventos y el tráfico de red revela comunicaciones. Cada fuente tiene una naturaleza diferente: algunos datos son volátiles, otros persistentes. Un investigador debe actuar rápidamente para capturar la evidencia antes de que desaparezca.</p>
+                </article>
+
+                <article class="conclusion-card">
+                    <h4>4. La Correlación es la Clave del Análisis Forense</h4>
+                    <p>Analizar memoria, registros y tráfico de forma independiente proporciona pistas parciales. La verdadera claridad emerge cuando se correlaciona información de múltiples fuentes. Un investigador debe convertirse en detective digital, tejiendo conexiones entre datos aparentemente dispares para reconstruir una narrativa coherente de lo que ocurrió.</p>
+                </article>
+
+                <article class="conclusion-card">
+                    <h4>5. El Conocimiento Técnico es un Arma en la Investigación</h4>
+                    <p>Comprender cómo funcionan los sistemas informáticos, cómo se comunican y dónde se almacenan datos es una ventaja decisiva. Los investigadores forenses que entienden estos fundamentos pueden identificar anomalías, predecir dónde buscar evidencia y validar sus hallazgos con bases técnicas sólidas.</p>
+                </article>
+
+                <article class="conclusion-card">
+                    <h4>6. La Seguridad Comienza con la Comprensión</h4>
+                    <p>Proteger sistemas informáticos requiere entender primero cómo funcionan y cómo pueden ser comprometidos. El conocimiento de arquitectura, redes e investigación forense no solo es útil para los investigadores, sino también para desarrolladores, administradores y profesionales de ciberseguridad que buscan construir sistemas más resilientes.</p>
+                </article>
+            </div>
+
+            <div class="final-thought">
+                <h4>Reflexión Final</h4>
+                <p>La intersección de arquitectura de computadores, redes de comunicaciones e investigación de ciberdelitos forma la base del conocimiento técnico moderno. Mientras los sistemas se vuelven más complejos y los ataques más sofisticados, los profesionales que entiendan estos fundamentos estarán mejor equipados para proteger, investigar y asegurar los sistemas digitales en los que confía nuestra sociedad.</p>
+            </div>
+        </section>
+
+        <!-- Botón flotante de regreso al inicio -->
+        <button id="back-to-top" class="back-to-top" aria-label="Volver al inicio">
+            <span>↑</span>
+        </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Portal Educativo - Arquitectura de Computadores, Redes y Forensia Digital</p>
+            <p>Contenido educativo desarrollado con HTML5, CSS3 y JavaScript vanilla</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
