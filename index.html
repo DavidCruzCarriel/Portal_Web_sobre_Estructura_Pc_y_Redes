@@ -222,51 +222,63 @@
 
                 <div class="memory-diagram">
                     <svg viewBox="0 0 450 320" class="pyramid-diagram">
-                        <!-- Pirámide -->
-                        <polygon points="225,20 405,280 45,280" fill="none" stroke="#00d4ff" stroke-width="2"/>
-                        <line x1="225" y1="20" x2="405" y2="280" stroke="#00d4ff" stroke-width="1"/>
-                        <line x1="225" y1="20" x2="45" y2="280" stroke="#00d4ff" stroke-width="1"/>
+                        <!-- Pirámide con colores optimizados para PDF -->
+                        <defs>
+                            <linearGradient id="pyramidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ffaa00;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0066cc;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
                         
-                        <!-- Etiquetas principales -->
-                        <text x="225" y="80" text-anchor="middle" fill="#00d4ff" font-weight="bold" font-size="14">Registros</text>
-                        <text x="225" y="125" text-anchor="middle" fill="#0099ff" font-weight="bold" font-size="14">Caché</text>
-                        <text x="225" y="170" text-anchor="middle" fill="#0066ff" font-weight="bold" font-size="14">RAM</text>
-                        <text x="225" y="260" text-anchor="middle" fill="#003366" font-weight="bold" font-size="14">Almacenamiento</text>
+                        <!-- Pirámide con gradiente -->
+                        <polygon points="225,20 405,280 45,280" fill="url(#pyramidGradient)" stroke="#000000" stroke-width="2.5"/>
+                        <line x1="225" y1="20" x2="405" y2="280" stroke="#000000" stroke-width="1.5"/>
+                        <line x1="225" y1="20" x2="45" y2="280" stroke="#000000" stroke-width="1.5"/>
+                        
+                        <!-- Etiquetas principales con fondo para mejor visibilidad en PDF -->
+                        <rect x="175" y="65" width="100" height="25" fill="#ffffff" opacity="0.9" rx="3"/>
+                        <text x="225" y="85" text-anchor="middle" fill="#000000" font-weight="bold" font-size="14">Registros</text>
+                        
+                        <rect x="175" y="110" width="100" height="25" fill="#ffffff" opacity="0.9" rx="3"/>
+                        <text x="225" y="130" text-anchor="middle" fill="#000000" font-weight="bold" font-size="14">Caché</text>
+                        
+                        <rect x="175" y="155" width="100" height="25" fill="#ffffff" opacity="0.9" rx="3"/>
+                        <text x="225" y="175" text-anchor="middle" fill="#000000" font-weight="bold" font-size="14">RAM</text>
+                        
+                        <rect x="150" y="245" width="150" height="25" fill="#ffffff" opacity="0.9" rx="3"/>
+                        <text x="225" y="265" text-anchor="middle" fill="#000000" font-weight="bold" font-size="14">Almacenamiento</text>
                         
                         <!-- Escala de velocidad - Lado izquierdo -->
                         <g>
                             <!-- Línea vertical de velocidad -->
-                            <line x1="15" y1="30" x2="15" y2="290" stroke="#00ff88" stroke-width="2" stroke-dasharray="5,5"/>
+                            <line x1="15" y1="30" x2="15" y2="290" stroke="#000000" stroke-width="2.5"/>
                             
                             <!-- Indicador de RÁPIDO (arriba) -->
-                            <text x="5" y="20" fill="#00ff88" font-weight="bold" font-size="12">⚡ RÁPIDO</text>
-                            <line x1="10" y1="30" x2="20" y2="30" stroke="#00ff88" stroke-width="2"/>
+                            <rect x="0" y="10" width="50" height="20" fill="#ff3333" rx="3"/>
+                            <text x="25" y="24" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">⚡ RÁPIDO</text>
+                            <line x1="10" y1="30" x2="20" y2="30" stroke="#ff3333" stroke-width="2.5"/>
                             
                             <!-- Indicador de LENTO (abajo) -->
-                            <text x="8" y="310" fill="#ff9800" font-weight="bold" font-size="12">🐢 LENTO</text>
-                            <line x1="10" y1="290" x2="20" y2="290" stroke="#ff9800" stroke-width="2"/>
+                            <rect x="0" y="295" width="45" height="20" fill="#0066cc" rx="3"/>
+                            <text x="22" y="309" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">🐢 LENTO</text>
+                            <line x1="10" y1="290" x2="20" y2="290" stroke="#0066cc" stroke-width="2.5"/>
                         </g>
                         
                         <!-- Flechas de velocidad - Lado derecho -->
                         <g>
                             <!-- Flecha grande RÁPIDO (arriba) -->
-                            <path d="M 430 40 L 430 80" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowhead-fast)"/>
-                            <text x="432" y="65" fill="#00ff88" font-weight="bold" font-size="11">↑ Rápido</text>
+                            <line x1="430" y1="40" x2="430" y2="75" stroke="#ff3333" stroke-width="2.5"/>
+                            <polygon points="430,40 425,50 435,50" fill="#ff3333"/>
+                            <rect x="415" y="52" width="30" height="18" fill="#ff3333" rx="2"/>
+                            <text x="430" y="64" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="10">Rápido</text>
                             
                             <!-- Flecha grande LENTO (abajo) -->
-                            <path d="M 430 270 L 430 310" stroke="#ff9800" stroke-width="2" fill="none" marker-end="url(#arrowhead-slow)"/>
-                            <text x="432" y="295" fill="#ff9800" font-weight="bold" font-size="11">↓ Lento</text>
+                            <line x1="430" y1="270" x2="430" y2="305" stroke="#0066cc" stroke-width="2.5"/>
+                            <polygon points="430,310 425,300 435,300" fill="#0066cc"/>
+                            <rect x="415" y="280" width="30" height="18" fill="#0066cc" rx="2"/>
+                            <text x="430" y="292" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="10">Lento</text>
                         </g>
-                        
-                        <!-- Marcadores de flechas -->
-                        <defs>
-                            <marker id="arrowhead-fast" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-                                <polygon points="0 0, 10 5, 0 10" fill="#00ff88"/>
-                            </marker>
-                            <marker id="arrowhead-slow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-                                <polygon points="0 0, 10 5, 0 10" fill="#ff9800"/>
-                            </marker>
-                        </defs>
                     </svg>
                 </div>
 
@@ -1046,7 +1058,7 @@
 
                 <div class="author-info">
                     <div class="info-section">
-                        <h3>Posición Actual</h3>
+                        <h3>Ocupación</h3>
                         <p><strong>Cabo Primero de Policía Nacional del Ecuador</strong></p>
                     </div>
 
