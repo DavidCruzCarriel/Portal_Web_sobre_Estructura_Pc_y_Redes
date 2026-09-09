@@ -218,20 +218,52 @@
                 </div>
 
                 <div class="memory-diagram">
-                    <svg viewBox="0 0 400 300" class="pyramid-diagram">
-                        <polygon points="200,20 380,280 20,280" fill="none" stroke="#00d4ff" stroke-width="2"/>
-                        <line x1="200" y1="20" x2="380" y2="280" stroke="#00d4ff" stroke-width="1"/>
-                        <line x1="200" y1="20" x2="20" y2="280" stroke="#00d4ff" stroke-width="1"/>
+                    <svg viewBox="0 0 450 320" class="pyramid-diagram">
+                        <!-- Pirámide -->
+                        <polygon points="225,20 405,280 45,280" fill="none" stroke="#00d4ff" stroke-width="2"/>
+                        <line x1="225" y1="20" x2="405" y2="280" stroke="#00d4ff" stroke-width="1"/>
+                        <line x1="225" y1="20" x2="45" y2="280" stroke="#00d4ff" stroke-width="1"/>
                         
-                        <!-- Etiquetas -->
-                        <text x="200" y="80" text-anchor="middle" fill="#00d4ff" font-weight="bold">Registros</text>
-                        <text x="200" y="120" text-anchor="middle" fill="#0099ff" font-weight="bold">Caché</text>
-                        <text x="200" y="170" text-anchor="middle" fill="#0066ff" font-weight="bold">RAM</text>
-                        <text x="200" y="260" text-anchor="middle" fill="#003366" font-weight="bold">Almacenamiento</text>
+                        <!-- Etiquetas principales -->
+                        <text x="225" y="80" text-anchor="middle" fill="#00d4ff" font-weight="bold" font-size="14">Registros</text>
+                        <text x="225" y="125" text-anchor="middle" fill="#0099ff" font-weight="bold" font-size="14">Caché</text>
+                        <text x="225" y="170" text-anchor="middle" fill="#0066ff" font-weight="bold" font-size="14">RAM</text>
+                        <text x="225" y="260" text-anchor="middle" fill="#003366" font-weight="bold" font-size="14">Almacenamiento</text>
                         
-                        <!-- Indicadores de velocidad -->
-                        <text x="390" y="80" fill="#00d4ff" font-size="12">Rápido</text>
-                        <text x="390" y="260" fill="#003366" font-size="12">Lento</text>
+                        <!-- Escala de velocidad - Lado izquierdo -->
+                        <g>
+                            <!-- Línea vertical de velocidad -->
+                            <line x1="15" y1="30" x2="15" y2="290" stroke="#00ff88" stroke-width="2" stroke-dasharray="5,5"/>
+                            
+                            <!-- Indicador de RÁPIDO (arriba) -->
+                            <text x="5" y="20" fill="#00ff88" font-weight="bold" font-size="12">⚡ RÁPIDO</text>
+                            <line x1="10" y1="30" x2="20" y2="30" stroke="#00ff88" stroke-width="2"/>
+                            
+                            <!-- Indicador de LENTO (abajo) -->
+                            <text x="8" y="310" fill="#ff9800" font-weight="bold" font-size="12">🐢 LENTO</text>
+                            <line x1="10" y1="290" x2="20" y2="290" stroke="#ff9800" stroke-width="2"/>
+                        </g>
+                        
+                        <!-- Flechas de velocidad - Lado derecho -->
+                        <g>
+                            <!-- Flecha grande RÁPIDO (arriba) -->
+                            <path d="M 430 40 L 430 80" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowhead-fast)"/>
+                            <text x="432" y="65" fill="#00ff88" font-weight="bold" font-size="11">↑ Rápido</text>
+                            
+                            <!-- Flecha grande LENTO (abajo) -->
+                            <path d="M 430 270 L 430 310" stroke="#ff9800" stroke-width="2" fill="none" marker-end="url(#arrowhead-slow)"/>
+                            <text x="432" y="295" fill="#ff9800" font-weight="bold" font-size="11">↓ Lento</text>
+                        </g>
+                        
+                        <!-- Marcadores de flechas -->
+                        <defs>
+                            <marker id="arrowhead-fast" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#00ff88"/>
+                            </marker>
+                            <marker id="arrowhead-slow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#ff9800"/>
+                            </marker>
+                        </defs>
                     </svg>
                 </div>
 
@@ -401,24 +433,68 @@
                 </div>
 
                 <div class="device-identifiers-diagram">
-                    <svg viewBox="0 0 500 250" class="device-diagram">
-                        <!-- Dispositivo -->
-                        <rect x="100" y="50" width="300" height="150" fill="#1a1a2e" stroke="#00d4ff" stroke-width="2" rx="10"/>
+                    <svg viewBox="0 0 600 280" class="device-diagram">
+                        <!-- Dispositivo principal -->
+                        <rect x="20" y="40" width="340" height="200" fill="#1a1a2e" stroke="#00d4ff" stroke-width="2" rx="10"/>
                         
-                        <!-- Información -->
-                        <text x="250" y="90" text-anchor="middle" fill="#00d4ff" font-weight="bold" font-size="14">Computador en Red</text>
+                        <!-- Título -->
+                        <text x="190" y="75" text-anchor="middle" fill="#00d4ff" font-weight="bold" font-size="16">Computador en Red</text>
                         
-                        <!-- IP -->
-                        <text x="150" y="130" fill="#00ff88" font-weight="bold">IP:</text>
-                        <text x="240" y="130" fill="#fff" font-family="monospace">192.168.1.25</text>
+                        <!-- Línea separadora -->
+                        <line x1="30" y1="90" x2="360" y2="90" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
                         
-                        <!-- MAC -->
-                        <text x="150" y="170" fill="#00ff88" font-weight="bold">MAC:</text>
-                        <text x="240" y="170" fill="#fff" font-family="monospace">00:1A:2B:3C:4D:5E</text>
+                        <!-- Sección IP -->
+                        <g>
+                            <!-- Fondo para IP -->
+                            <rect x="30" y="110" width="320" height="50" fill="#0a0e27" stroke="#00ff88" stroke-width="1" rx="5" opacity="0.6"/>
+                            
+                            <text x="40" y="135" fill="#00ff88" font-weight="bold" font-size="13">IP (Dirección Lógica):</text>
+                            <text x="40" y="155" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">192.168.1.25</text>
+                        </g>
                         
-                        <!-- Etiquetas -->
-                        <text x="480" y="130" fill="#0099ff" font-size="11">Dirección lógica</text>
-                        <text x="480" y="170" fill="#0099ff" font-size="11">Dirección física</text>
+                        <!-- Sección MAC -->
+                        <g>
+                            <!-- Fondo para MAC -->
+                            <rect x="30" y="170" width="320" height="50" fill="#0a0e27" stroke="#ff9800" stroke-width="1" rx="5" opacity="0.6"/>
+                            
+                            <text x="40" y="195" fill="#ff9800" font-weight="bold" font-size="13">MAC (Dirección Física):</text>
+                            <text x="40" y="215" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">00:1A:2B:3C:4D:5E</text>
+                        </g>
+                        
+                        <!-- Panel derecho con iconos y explicación -->
+                        <g>
+                            <!-- Rectángulo del lado derecho -->
+                            <rect x="380" y="40" width="200" height="200" fill="#1a1a2e" stroke="#0099ff" stroke-width="2" rx="10"/>
+                            
+                            <!-- Título del panel -->
+                            <text x="480" y="75" text-anchor="middle" fill="#0099ff" font-weight="bold" font-size="13">Identificadores</text>
+                            
+                            <!-- Línea separadora -->
+                            <line x1="390" y1="85" x2="570" y2="85" stroke="#0099ff" stroke-width="1" opacity="0.5"/>
+                            
+                            <!-- IP - Panel derecho -->
+                            <g>
+                                <circle cx="400" cy="115" r="6" fill="#00ff88" opacity="0.8"/>
+                                <text x="415" y="120" fill="#00ff88" font-weight="bold" font-size="11">IP</text>
+                                <text x="390" y="140" fill="#fff" font-size="10">Dirección</text>
+                                <text x="390" y="153" fill="#fff" font-size="10">de Red</text>
+                            </g>
+                            
+                            <!-- MAC - Panel derecho -->
+                            <g>
+                                <circle cx="500" cy="115" r="6" fill="#ff9800" opacity="0.8"/>
+                                <text x="515" y="120" fill="#ff9800" font-weight="bold" font-size="11">MAC</text>
+                                <text x="490" y="140" fill="#fff" font-size="10">Dirección</text>
+                                <text x="490" y="153" fill="#fff" font-size="10">Física</text>
+                            </g>
+                            
+                            <!-- Info adicional -->
+                            <line x1="390" y1="165" x2="570" y2="165" stroke="#0099ff" stroke-width="1" opacity="0.3"/>
+                            
+                            <text x="480" y="185" text-anchor="middle" fill="#00d4ff" font-size="9">Ambos identificadores</text>
+                            <text x="480" y="198" text-anchor="middle" fill="#00d4ff" font-size="9">son esenciales para</text>
+                            <text x="480" y="211" text-anchor="middle" fill="#00d4ff" font-size="9">la comunicación</text>
+                        </g>
                     </svg>
                 </div>
             </article>
@@ -434,23 +510,43 @@
                     <div class="topology-section">
                         <h5>Topología Estrella</h5>
                         
-                        <svg viewBox="0 0 200 200" class="topology-diagram">
-                            <!-- Dispositivo central -->
-                            <circle cx="100" cy="100" r="20" fill="#00d4ff" stroke="#00ff88" stroke-width="2"/>
-                            <text x="100" y="105" text-anchor="middle" fill="#000" font-size="10" font-weight="bold">Hub/Switch</text>
+                        <svg viewBox="0 0 240 240" class="topology-diagram">
+                            <!-- Dispositivo central (Hub/Switch) -->
+                            <rect x="100" y="100" width="40" height="40" fill="#00d4ff" stroke="#00ff88" stroke-width="2" rx="3"/>
+                            <text x="120" y="128" text-anchor="middle" fill="#000" font-size="9" font-weight="bold">Switch</text>
                             
-                            <!-- Dispositivos periféricos -->
-                            <circle cx="100" cy="20" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="100" y1="35" x2="100" y2="80" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivo superior -->
+                            <rect x="105" y="10" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="120" y="27" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC1</text>
+                            <line x1="120" y1="35" x2="120" y2="100" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="120" cy="35" r="2" fill="#00ff88"/>
+                            <circle cx="120" cy="100" r="2" fill="#00ff88"/>
                             
-                            <circle cx="170" cy="100" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="120" y1="100" x2="155" y2="100" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivo derecho -->
+                            <rect x="185" y="105" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="200" y="122" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC2</text>
+                            <line x1="140" y1="120" x2="185" y2="120" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="140" cy="120" r="2" fill="#00ff88"/>
+                            <circle cx="185" cy="120" r="2" fill="#00ff88"/>
                             
-                            <circle cx="100" cy="180" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="100" y1="120" x2="100" y2="165" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivo inferior -->
+                            <rect x="105" y="205" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="120" y="222" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC3</text>
+                            <line x1="120" y1="140" x2="120" y2="205" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="120" cy="140" r="2" fill="#00ff88"/>
+                            <circle cx="120" cy="205" r="2" fill="#00ff88"/>
                             
-                            <circle cx="30" cy="100" r="15" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="45" y1="100" x2="80" y2="100" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivo izquierdo -->
+                            <rect x="15" y="105" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="30" y="122" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC4</text>
+                            <line x1="45" y1="120" x2="100" y2="120" stroke="#00d4ff" stroke-width="2"/>
+                            <circle cx="45" cy="120" r="2" fill="#00ff88"/>
+                            <circle cx="100" cy="120" r="2" fill="#00ff88"/>
+                            
+                            <!-- Indicador de flujo de datos -->
+                            <g opacity="0.6">
+                                <path d="M 120 40 Q 130 80 120 100" stroke="#00ff88" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+                            </g>
                         </svg>
 
                         <div class="topology-details">
@@ -482,17 +578,50 @@
                     <div class="topology-section">
                         <h5>Topología Anillo</h5>
                         
-                        <svg viewBox="0 0 200 200" class="topology-diagram">
-                            <!-- Anillo -->
-                            <circle cx="100" cy="100" r="70" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="5,5"/>
+                        <svg viewBox="0 0 240 240" class="topology-diagram">
+                            <!-- Anillo con arcos direccionados -->
+                            <g>
+                                <!-- Arco superior derecho -->
+                                <path d="M 130 45 Q 170 45 180 75" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead-ring)"/>
+                                <!-- Arco derecho inferior -->
+                                <path d="M 185 80 Q 195 120 165 160" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead-ring)"/>
+                                <!-- Arco inferior izquierdo -->
+                                <path d="M 160 170 Q 110 190 75 170" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead-ring)"/>
+                                <!-- Arco izquierdo superior -->
+                                <path d="M 70 160 Q 30 120 35 75" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead-ring)"/>
+                                <!-- Arco superior izquierdo -->
+                                <path d="M 40 70 Q 60 40 110 40" stroke="#00d4ff" stroke-width="2" fill="none" marker-end="url(#arrowhead-ring)"/>
+                            </g>
                             
-                            <!-- Dispositivos en el anillo -->
-                            <circle cx="100" cy="30" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="160" cy="60" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="170" cy="130" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="100" cy="170" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="30" cy="130" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="40" cy="60" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivos en el anillo (Switch/Nodos) -->
+                            <rect x="100" y="30" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="115" y="48" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N1</text>
+                            
+                            <rect x="170" y="65" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="185" y="83" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N2</text>
+                            
+                            <rect x="160" y="155" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="175" y="173" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N3</text>
+                            
+                            <rect x="100" y="185" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="115" y="203" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N4</text>
+                            
+                            <rect x="30" y="155" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="45" y="173" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N5</text>
+                            
+                            <rect x="20" y="65" width="30" height="25" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="35" y="83" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">N6</text>
+                            
+                            <!-- Definición de flecha -->
+                            <defs>
+                                <marker id="arrowhead-ring" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#00ff88"/>
+                                </marker>
+                            </defs>
+                            
+                            <!-- Token circulando -->
+                            <circle cx="130" cy="50" r="4" fill="#ff6b6b" opacity="0.8"/>
+                            <text x="130" y="68" text-anchor="middle" fill="#ff6b6b" font-size="7">Token</text>
                         </svg>
 
                         <div class="topology-details">
@@ -520,26 +649,51 @@
                     <div class="topology-section">
                         <h5>Topología Bus</h5>
                         
-                        <svg viewBox="0 0 300 150" class="topology-diagram">
-                            <!-- Bus principal -->
-                            <line x1="30" y1="75" x2="270" y2="75" stroke="#00d4ff" stroke-width="3"/>
+                        <svg viewBox="0 0 340 170" class="topology-diagram">
+                            <!-- Bus principal (cable coaxial) -->
+                            <rect x="20" y="70" width="300" height="8" fill="#00d4ff" opacity="0.3" rx="4"/>
+                            <line x1="20" y1="74" x2="320" y2="74" stroke="#00d4ff" stroke-width="3"/>
                             
-                            <!-- Dispositivos conectados -->
-                            <circle cx="40" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="40" y1="35" x2="40" y2="63" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="40" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Terminadores -->
+                            <rect x="15" y="68" width="8" height="12" fill="#ff6b6b" stroke="#ff4757" stroke-width="1" rx="1"/>
+                            <text x="19" y="90" text-anchor="middle" fill="#ff6b6b" font-size="7" font-weight="bold">T</text>
                             
-                            <circle cx="110" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="110" y1="35" x2="110" y2="63" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="110" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <rect x="317" y="68" width="8" height="12" fill="#ff6b6b" stroke="#ff4757" stroke-width="1" rx="1"/>
+                            <text x="321" y="90" text-anchor="middle" fill="#ff6b6b" font-size="7" font-weight="bold">T</text>
                             
-                            <circle cx="190" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="190" y1="35" x2="190" y2="63" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="190" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- Dispositivos conectados al bus -->
+                            <!-- PC1 -->
+                            <rect x="35" y="74" width="2" height="18" fill="#00d4ff" stroke="#00d4ff" stroke-width="1"/>
+                            <rect x="20" y="10" width="35" height="28" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="37.5" y="30" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC1</text>
+                            <line x1="37.5" y1="38" x2="36" y2="74" stroke="#00d4ff" stroke-width="1.5"/>
                             
-                            <circle cx="260" cy="75" r="12" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
-                            <line x1="260" y1="35" x2="260" y2="63" stroke="#00d4ff" stroke-width="2"/>
-                            <circle cx="260" cy="25" r="10" fill="#0066ff" stroke="#00d4ff" stroke-width="2"/>
+                            <!-- PC2 -->
+                            <rect x="110" y="74" width="2" height="18" fill="#00d4ff" stroke="#00d4ff" stroke-width="1"/>
+                            <rect x="90" y="10" width="40" height="28" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="110" y="30" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC2</text>
+                            <line x1="110" y1="38" x2="111" y2="74" stroke="#00d4ff" stroke-width="1.5"/>
+                            
+                            <!-- PC3 -->
+                            <rect x="195" y="74" width="2" height="18" fill="#00d4ff" stroke="#00d4ff" stroke-width="1"/>
+                            <rect x="175" y="10" width="40" height="28" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="195" y="30" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC3</text>
+                            <line x1="195" y1="38" x2="196" y2="74" stroke="#00d4ff" stroke-width="1.5"/>
+                            
+                            <!-- PC4 -->
+                            <rect x="275" y="74" width="2" height="18" fill="#00d4ff" stroke="#00d4ff" stroke-width="1"/>
+                            <rect x="260" y="10" width="35" height="28" fill="#0066ff" stroke="#00d4ff" stroke-width="2" rx="2"/>
+                            <text x="277.5" y="30" text-anchor="middle" fill="#fff" font-size="8" font-weight="bold">PC4</text>
+                            <line x1="277.5" y1="38" x2="276" y2="74" stroke="#00d4ff" stroke-width="1.5"/>
+                            
+                            <!-- Indicador de colisión -->
+                            <g opacity="0.7">
+                                <circle cx="150" cy="74" r="6" fill="#ff9800" stroke="#ff6b6b" stroke-width="1"/>
+                                <text x="150" y="135" text-anchor="middle" fill="#ff9800" font-size="7">Posible colisión</text>
+                            </g>
+                            
+                            <!-- Leyenda del bus -->
+                            <text x="150" y="160" text-anchor="middle" fill="#00d4ff" font-size="7">Bus compartido (Cable coaxial)</text>
                         </svg>
 
                         <div class="topology-details">
