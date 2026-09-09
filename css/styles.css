@@ -1517,4 +1517,148 @@ tbody tr:hover {
     .interactive-section {
         padding: var(--space-md);
     }
+
+    .modal {
+        max-width: 90%;
+    }
+
+    .author-modal-content {
+        max-height: 90vh;
+    }
+}
+
+/* ============================================
+   MODAL DEL AUTOR
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--color-dark-card);
+    border: 2px solid var(--color-secondary);
+    border-radius: 15px;
+    padding: var(--space-xl);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideInUp 0.4s ease;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background-color: rgba(0, 212, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* Estilos específicos del modal del autor */
+.author-modal-content {
+    max-width: 650px;
+}
+
+.author-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.author-avatar {
+    font-size: 4rem;
+    margin-bottom: var(--space-md);
+    display: inline-block;
+}
+
+.author-header h2 {
+    color: var(--color-secondary);
+    font-size: var(--font-size-2xl);
+    margin: 0;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.info-section {
+    background-color: rgba(0, 212, 255, 0.05);
+    border-left: 4px solid var(--color-accent);
+    padding: var(--space-md);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.info-section:hover {
+    background-color: rgba(0, 212, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.info-section h3 {
+    color: var(--color-accent);
+    font-size: var(--font-size-lg);
+    margin: 0 0 var(--space-md) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-section p {
+    color: var(--color-dark-text);
+    line-height: 1.8;
+    margin: var(--space-sm) 0;
+    font-size: var(--font-size-base);
+}
+
+.info-section strong {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/* Animación de apertura del modal */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

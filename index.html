@@ -32,6 +32,9 @@
                 <button id="share-page" class="btn-utility" aria-label="Compartir página" title="Compartir página">
                     <span>📤</span>
                 </button>
+                <button id="author-btn" class="btn-utility" aria-label="Información del Autor" title="Información del Autor">
+                    <span>👤</span>
+                </button>
             </div>
             
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -1030,6 +1033,37 @@
         <button id="back-to-top" class="back-to-top" aria-label="Volver al inicio">
             <span>↑</span>
         </button>
+
+        <!-- Modal del Autor -->
+        <div id="author-modal" class="modal" style="display: none;">
+            <div class="modal-content author-modal-content">
+                <button class="modal-close" id="close-author-modal" aria-label="Cerrar modal">&times;</button>
+                
+                <div class="author-header">
+                    <div class="author-avatar">👨‍💼</div>
+                    <h2>David Antonio Cruz Carriel</h2>
+                </div>
+
+                <div class="author-info">
+                    <div class="info-section">
+                        <h3>Posición Actual</h3>
+                        <p><strong>Cabo Primero de Policía Nacional del Ecuador</strong></p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Formación Académica</h3>
+                        <p>Discente de la carrera de <strong>Investigación de Ciberdelitos</strong></p>
+                        <p>Instituto Superior Policía Nacional</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>¿Por qué decidir estudiar Investigación de Ciberdelitos?</h3>
+                        <p>Decidí estudiar Investigación Criminal de Ciberdelitos porque la delincuencia ha evolucionado. Hoy el delito ya no solo está en la calle, está en redes sociales, en estafas por WhatsApp, en el robo de datos y en la extorsión digital que a diario afecta a ciudadanos en Guayaquil y en todo el país.</p>
+                        <p>Como servidor policial, quiero estar capacitado para entender, rastrear y prevenir estos nuevos fenómenos criminales, proteger a las víctimas y aportar a una Policía Nacional más técnica y preparada para el mundo digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -1041,5 +1075,40 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Funcionalidad del modal del Autor
+        document.addEventListener('DOMContentLoaded', function() {
+            const authorBtn = document.getElementById('author-btn');
+            const authorModal = document.getElementById('author-modal');
+            const closeAuthorModal = document.getElementById('close-author-modal');
+
+            // Abrir modal
+            if (authorBtn) {
+                authorBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    authorModal.style.display = 'flex';
+                    authorModal.classList.add('show');
+                });
+            }
+
+            // Cerrar modal al hacer clic en la X
+            if (closeAuthorModal) {
+                closeAuthorModal.addEventListener('click', function() {
+                    authorModal.style.display = 'none';
+                    authorModal.classList.remove('show');
+                });
+            }
+
+            // Cerrar modal al hacer clic fuera del contenido
+            if (authorModal) {
+                authorModal.addEventListener('click', function(e) {
+                    if (e.target === authorModal) {
+                        authorModal.style.display = 'none';
+                        authorModal.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
